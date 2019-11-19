@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=750" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>template</title>
+  </head>
+  <style>
+    body, html {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background:rgba(248,248,248,1);
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    img {
+      display: block;
+      pointer-events: none;
+    }
+    * { touch-action: pan-y; }
+  </style>
+  <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+  <script>
+    //自定义alert弹窗不带域名
+    (function(){
+      window.onload = function () {
+        document.addEventListener('touchstart', function (event) {
+          if (event.touches.length > 1) {
+            event.preventDefault()
+          }
+        })
+        document.addEventListener('gesturestart', function (event) {
+          event.preventDefault()
+        })
+      }
+    })();
+  </script>
+</html>
