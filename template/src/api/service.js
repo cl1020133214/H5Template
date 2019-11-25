@@ -135,5 +135,19 @@ export default {
                 });
             })
         };
+        //等待图片加载完毕后
+        Vue.prototype.preloadImage = function (names, cb, prefix) {
+            var n = 0,img,imgs = {};
+            names.forEach(function(name) {
+                img = new Image();
+                img.onload = (function(name, img) {
+                    return function() {
+                        imgs[name] = img;
+                        (++n === names.length) && cb && cb(imgs);
+                    }
+                })(name, img);
+                img.src = (prefix || '') + name;
+            });
+        };
     }
 }

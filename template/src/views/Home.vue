@@ -13,20 +13,17 @@
     export default {
         name: 'home',
         data() {
-            return {}
+            return {
+
+            }
         },
         created() {
         },
         mounted() {
-            console.log(this.GetUrlParam("pid"));
-            this.wxConfig();
-            this.getActivitytime().then(res => {
-                console.log(res)
-            })
         },
         methods: {},
         components: {
-            HelloWorld
+            HelloWorld,
         }
     }
 </script>
